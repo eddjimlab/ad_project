@@ -70,7 +70,7 @@
           <v-icon left>mdi-logout</v-icon>
           Logout
           </v-btn>
-        
+
       </v-toolbar-items>
       <v-btn icon>
         <v-icon>mdi-heart</v-icon>
@@ -138,15 +138,15 @@ export default {
       drawer: false
     }
   },
-  computed:{
-    error(){
+  computed: {
+    error () {
       return this.$store.getters.error
     },
-    isUserLoggedIn(){
+    isUserLoggedIn () {
       return this.$store.getters.isUserLoggedIn
     },
-    links(){
-      if(this.isUserLoggedIn){
+    links () {
+      if (this.isUserLoggedIn) {
         return [
           { title: 'Orders', icon: 'mdi-cart', url: '/orders' },
           { title: 'New ad', icon: 'mdi-cart-arrow-down', url: '/new' },
@@ -159,15 +159,15 @@ export default {
       ]
     }
   },
-  methods:{
-    closeError(){
+  methods: {
+    closeError () {
       this.$store.error.dispatch('clearError')
     },
-    onLogout(){
-    this.$store.dispatch('logoutUser')
-    this.$store.user.push('/')
+    onLogout () {
+      this.$store.dispatch('logoutUser')
+      this.$store.user.push('/')
     }
-  },
+  }
 }
 </script>
 

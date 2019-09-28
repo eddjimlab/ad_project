@@ -45,8 +45,9 @@
           ></v-switch>
           <div class="flex-grow-1"></div>
                <v-btn color="success"
+               :loading="loading"
                 @click="createAd"
-                :disabled="!valid"
+                :disabled="!valid || loading"
                 >Create ad</v-btn>
             </v-col>
           </v-row>
@@ -62,8 +63,14 @@ export default {
     return {
       title: '',
       description: '',
+      imageSrc: '',
       promo: false,
       valid: false
+    }
+  },
+  computed: {
+    loading () {
+      return this.$store.getters.loading
     }
   },
   methods: {
@@ -72,10 +79,15 @@ export default {
         const ad = {
           title: this.title,
           description: this.description,
-          promo: this.promo,
-          imageSrc: 'https://cdn.vuetifyjs.com/images/cards/house.jpg'
+          ownerId: this.ownerId,
+          imageSrc: 'https://cdn.vuetifyjs.com/images/cards/house.jpg',
+          promo: this.promo
         }
         this.$store.dispatch('createAd', ad)
+          .then(() => {
+            this.$router.push('/list')
+          })
+          .catch(() => {})
       }
     }
   }

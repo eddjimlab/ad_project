@@ -11,5 +11,5 @@
     "devel": true,
     "jquery": true,
     "asi": true,
-    "esversion": 8
+    "esversion": 9
 }

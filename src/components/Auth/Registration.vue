@@ -61,44 +61,44 @@
 
 <script>
 export default {
-  data() {
+  data () {
     return {
-      email: "",
-      password: "",
-      ConfirmPassword: "",
+      email: '',
+      password: '',
+      ConfirmPassword: '',
       valid: false,
       emailRules: [
-        v => !!v || "E-mail is required",
-        v => /.+@.+\..+/.test(v) || "E-mail must be valid"
+        v => !!v || 'E-mail is required',
+        v => /.+@.+\..+/.test(v) || 'E-mail must be valid'
       ],
       passwordRules: [
-        v => !!v || "Password is required",
-        v => (v && v.length >= 6) || "Password must be more than 6 characters"
+        v => !!v || 'Password is required',
+        v => (v && v.length >= 6) || 'Password must be more than 6 characters'
       ],
       ConfirmPasswordRules: [
-        v => !!v || "Password is required",
-        v => v === this.password || "Password should match"
+        v => !!v || 'Password is required',
+        v => v === this.password || 'Password should match'
       ]
-    };
+    }
   },
   computed: {
-    loading() {
-      return this.$store.getters.loading;
+    loading () {
+      return this.$store.getters.loading
     }
   },
   methods: {
-    onSubmit() {
+    onSubmit () {
       const user = {
         email: this.email,
         password: this.password
-      };
+      }
       this.$store
-        .dispatch("registerUser", user)
+        .dispatch('registerUser', user)
         .then(() => {
-          this.$router.push("/");
+          this.$router.push('/')
         })
-        .catch(() => {});
+        .catch(() => {})
     }
   }
-};
+}
 </script>

@@ -1,7 +1,7 @@
 import * as fb from 'firebase/app'
 
 class User {
-  constructor(id) {
+  constructor (id) {
     this.id = id
   }
 }

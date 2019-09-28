@@ -4,7 +4,7 @@ export default {
     error: null
   },
   mutations: {
-    setloading (state, payload) {
+    setLoading (state, payload) {
       state.loading = payload
     },
     setError (state, payload) {
@@ -15,7 +15,7 @@ export default {
     }
   },
   actions: {
-    setLoadin ({
+    setLoading ({
       commit
     }, payload) {
       commit('setLoading', payload)
